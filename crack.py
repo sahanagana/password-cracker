@@ -6,6 +6,14 @@ parser.add_argument('-m', 'mode', help = 'b for bruteforce or d for dictionary a
 parser.add_argument('-i', '--input', help = 'Input password hash', required= False)
 parser.add_argument('-h', '--hash', help = 'hash type, md5, sha256, or pt (for plaintext)', required= False)
 args = parser.parse_args()
-#set up passwords file
+#dictionary attack--------------------------------
+if (args.mode=='d'):
+    print('starting dictionary attack...')
 
-#crack it YEKLSJD:LJK
+#brute force attack-------------------------------
+elif (args.mode=='b'):
+    print('starting brute force attack...')
+
+#default------------------------------------------
+print('bruh')
+quit()
