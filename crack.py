@@ -14,7 +14,8 @@ if (args.mode=='d'):
     with open(filename, 'r') as dictfile:
         #loop through it line by line
         for line in dictfile:
-
+            #hash the line
+            #compare result to password
 
 
 #brute force attack-------------------------------
