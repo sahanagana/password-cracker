@@ -7,6 +7,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
     - [ ] MD5 hashed passwords can be checked 
     - [ ] BCrypt hashed passwords can be checked 
     - [ ] SHA-256 hashed passwords can be checked 
+    
  - [ ]Brute force approach option
  - [ ]Dictionary Attack option 
  - [x]Command line arguments can be taken in
