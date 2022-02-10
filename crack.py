@@ -1,5 +1,6 @@
 import argparse
 import hashlib
+import itertools
 #might wanna look into passlib more...
 from passlib.hash import bcrypt
 #run with 'python3 crack.py' + extension
@@ -31,10 +32,9 @@ if args.mode=='d':
 
 #brute force attack-------------------------------
 elif args.mode=='b':
+    alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0','1','2','3','4','5','6','7','8','9']
     print('starting brute force attack...')
-    #open passwords file
-    with open('passwords.txt','r') as passwords:
-        print(passwords)
+    #use itertools to create combinations of letters and numbers?
 
 #default------------------------------------------
 else:
