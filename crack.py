@@ -1,17 +1,22 @@
 import argparse
 import hashlib
+#might wanna look into passlib more...
+from passlib.hash import bcrypt
 #run with 'python3 crack.py' + extension
 #arguments
 parser = argparse.ArgumentParser(description='python password cracker')
 parser.add_argument('-m', '--mode', help = 'b for bruteforce or d for dictionary attack', required= False)
-parser.add_argument('-i', '--input', help = 'Input password hash', required= False)
-parser.add_argument('-h', '--hash', help = 'hash type, md5, sha256, or pt (for plaintext)', required= False)
+parser.add_argument('-i', '--input', help = 'Input password hash', required= True)
+parser.add_argument('-h', '--hash', help = 'hash type, md5, sha256, pt (for plaintext), or bc(for bcrypt)', required= False)
 args = parser.parse_args()
 #dictionary attack--------------------------------
 if args.mode=='d':
     print('starting dictionary attack...')
     #take in file from user and open
-    filename = input('Enter dictionary file name:')
+    filename = input('Enter dictionary file name (don\'t put anything if you want to use the top 10000 passwords):')
+    #if the user put nothing, just use the passwords file
+    if len(filename)== 0:
+        filename = passwords.txt
     with open(filename, 'r') as dictfile:
         #loop through it line by line
         for line in dictfile:
@@ -27,6 +32,7 @@ if args.mode=='d':
 #brute force attack-------------------------------
 elif args.mode=='b':
     print('starting brute force attack...')
+    #open passwords file
     with open('passwords.txt','r') as passwords:
         print(passwords)
 
@@ -37,9 +43,16 @@ else:
 
 #functions----------------------------------------
 def dictionary_attack(word, target):
-    wordbytes= word.encode('utf-8')
-    if(args.hash!= 'p'):
-        wordhash = args.hash(wordbytes)
-        digest = wordhash.hexdigest()
-    if digest == target:
+    #if needed, hash it
+    hashtype = args.hash
+    if(hashtype!= 'pt' or hashtype!='bc'):
+        wordbytes= word.encode('utf-8')
+        wordhash = hashlib.hashtype(wordbytes)
+        word = wordhash.hexdigest()
+    elif(hashtype=='bc'):
+        wordbytes= word.encode('utf-8')
+        wordhash = bcrypt.hash(wordbytes)
+        word = wordhash.hexdigest()
+    if word == target:
         return True
+    return False
