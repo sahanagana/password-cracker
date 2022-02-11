@@ -1,5 +1,6 @@
 import argparse
 import hashlib
+#from itertools import combinations_with_replacement or permutations
 import itertools
 #might wanna look into passlib more...
 from passlib.hash import bcrypt
@@ -35,6 +36,8 @@ elif args.mode=='b':
     alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0','1','2','3','4','5','6','7','8','9']
     print('starting brute force attack...')
     #use itertools to create combinations of letters and numbers?
+    #print(list(combinations_with_replacement([1, 2], 2)))
+    #print (list(permutations([1, 'geeks'], 2)))
 
 #default------------------------------------------
 else:
