@@ -19,3 +19,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 -m : mode, b for bruteforce or d for dictionary attack
 -i : input password, if hashed, you must use -h to indicate the type of hash
 -h : hash type, md5, sha256, pt(plaintext) or bc(bcrypt)
+
+
+### example
+python3 crack.py -m d -i 5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8 -t sha256
+returns 
