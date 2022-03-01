@@ -8,20 +8,20 @@ import itertools
 parser = argparse.ArgumentParser(description='python password cracker')
 parser.add_argument('-m', '--mode', help = 'b for bruteforce or d for dictionary attack', required= False)
 parser.add_argument('-i', '--input', help = 'Input password hash', required= True)
-parser.add_argument('-t', '--type', help = 'hash type, md5, sha256, pt (for plaintext), or bc(for bcrypt)', required= False)
+parser.add_argument('-t', '--type', help = 'hash type, md5, sha256, or pt (for plaintext)', required= False)
 args = parser.parse_args()
 
 #functions----------------------------------------
 def dictionary_attack(word, target):
     #if needed, hash it
     hashtype = args.type
-    if(hashtype!= 'pt' or hashtype!='bc'):
+    if(hashtype== 'sha256'):
         wordbytes= word.encode('utf-8')
-        wordhash = hashlib.hashtype(wordbytes)
+        wordhash = hashlib.sha256(wordbytes)
         word = wordhash.hexdigest()
-    elif(hashtype=='bc'):
+    elif(hashtype=='md5'):
         wordbytes= word.encode('utf-8')
-        wordhash = bcrypt.hash(wordbytes)
+        wordhash = hashlib.md5(wordbytes)
         word = wordhash.hexdigest()
     if word == target:
         return True
