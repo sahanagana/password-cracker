@@ -17,7 +17,7 @@ if args.mode=='d':
     filename = input('Enter dictionary file name (don\'t put anything if you want to use the top 10000 passwords):')
     #if the user put nothing, just use the passwords file
     if len(filename)== 0:
-        filename = passwords.txt
+        filename = 'passwords.txt'
     with open(filename, 'r') as dictfile:
         #loop through it line by line
         for line in dictfile:
