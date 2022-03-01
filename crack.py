@@ -10,6 +10,23 @@ parser.add_argument('-m', '--mode', help = 'b for bruteforce or d for dictionary
 parser.add_argument('-i', '--input', help = 'Input password hash', required= True)
 parser.add_argument('-t', '--type', help = 'hash type, md5, sha256, pt (for plaintext), or bc(for bcrypt)', required= False)
 args = parser.parse_args()
+
+#functions----------------------------------------
+def dictionary_attack(word, target):
+    #if needed, hash it
+    hashtype = args.type
+    if(hashtype!= 'pt' or hashtype!='bc'):
+        wordbytes= word.encode('utf-8')
+        wordhash = hashlib.hashtype(wordbytes)
+        word = wordhash.hexdigest()
+    elif(hashtype=='bc'):
+        wordbytes= word.encode('utf-8')
+        wordhash = bcrypt.hash(wordbytes)
+        word = wordhash.hexdigest()
+    if word == target:
+        return True
+    return False
+
 #dictionary attack--------------------------------
 if args.mode=='d':
     print('starting dictionary attack...')
@@ -42,19 +59,3 @@ elif args.mode=='b':
 else:
     print('bruh')
     quit()
-
-#functions----------------------------------------
-def dictionary_attack(word, target):
-    #if needed, hash it
-    hashtype = args.type
-    if(hashtype!= 'pt' or hashtype!='bc'):
-        wordbytes= word.encode('utf-8')
-        wordhash = hashlib.hashtype(wordbytes)
-        word = wordhash.hexdigest()
-    elif(hashtype=='bc'):
-        wordbytes= word.encode('utf-8')
-        wordhash = bcrypt.hash(wordbytes)
-        word = wordhash.hexdigest()
-    if word == target:
-        return True
-    return False
