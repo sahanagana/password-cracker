@@ -2,8 +2,7 @@ import argparse
 import hashlib
 #from itertools import combinations_with_replacement or permutations
 import itertools
-#might wanna look into passlib more...
-from passlib.hash import bcrypt
+
 #run with 'python3 crack.py' + extension
 #arguments
 parser = argparse.ArgumentParser(description='python password cracker')
