@@ -18,7 +18,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 ### arguments
 -m : mode, b for bruteforce or d for dictionary attack
 -i : input password, if hashed, you must use -h to indicate the type of hash
--h : hash type, md5, sha256, pt(plaintext) or bc(bcrypt)
+-t : hash type, md5, sha256, pt(plaintext) or bc(bcrypt)
 
 
 ### example
