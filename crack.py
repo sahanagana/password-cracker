@@ -6,9 +6,9 @@ import itertools
 #run with 'python3 crack.py' + extension
 #arguments
 parser = argparse.ArgumentParser(description='python password cracker')
-parser.add_argument('-m', '--mode', help = 'b for bruteforce or d for dictionary attack', required= False)
+parser.add_argument('-m', '--mode', help = 'b for bruteforce or d for dictionary attack', required= True)
 parser.add_argument('-i', '--input', help = 'Input password hash', required= True)
-parser.add_argument('-t', '--type', help = 'hash type, md5, sha256, or pt (for plaintext)', required= False)
+parser.add_argument('-t', '--type', help = 'hash type, md5, sha256, or pt (for plaintext)', required= True)
 args = parser.parse_args()
 
 #functions----------------------------------------
