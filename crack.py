@@ -40,7 +40,7 @@ if args.mode=='d':
         for line in dictfile:
             #run da function to compare
             if dictionary_attack(line, args.input)==True:
-                print('Matched!' + line)
+                print('Matched! %s' %(line))
                 break
             else:
                 continue
