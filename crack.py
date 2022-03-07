@@ -1,7 +1,7 @@
 import argparse
 import hashlib
 #from itertools import combinations_with_replacement or permutations
-import itertools
+import random
 
 #run with 'python3 crack.py' + extension
 #arguments
@@ -37,24 +37,29 @@ if args.mode=='d':
         filename = 'passwords.txt'
     with open(filename, 'r') as dictfile:
         #loop through it line by line
+        found = False
         for line in dictfile:
             #run da function to compare
-            if dictionary_attack(line, args.input)==True:
+            if dictionary_attack(line.rstrip(), args.input)==True:
                 print('Matched! %s' %(line))
+                found = True
                 break
             else:
                 continue
         #otherwise
-        print('Couldn\'t find match rip lol')
+        if found == False:
+            print('Couldn\'t find match rip lol')
 
 #brute force attack-------------------------------
 elif args.mode=='b':
-    alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0','1','2','3','4','5','6','7','8','9']
-    print('starting brute force attack...')
-    #use itertools to create combinations of letters and numbers?
-    #print(list(combinations_with_replacement([1, 2], 2)))
-    #print (list(permutations([1, 'geeks'], 2)))
-
+    alphabet = 'abcdefghijklmnopqrstuvwxyz'
+    alphlist = list(alphabet)
+    attempt = ""
+    while(attempt!= args.input):
+        attempt = random.choices(alphlist, len(args.input))
+        if(attempt==list(args.input)):
+            print('password found! %s' %(attempt))
+            break
 #default------------------------------------------
 else:
     print('bruh')
