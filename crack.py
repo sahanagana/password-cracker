@@ -56,7 +56,8 @@ elif args.mode=='b':
     alphlist = list(alphabet)
     attempt = ""
     while(attempt!= args.input):
-        attempt = random.choices(alphlist, len(args.input))
+        attempt = random.choices(alphlist, k= len(args.input))
+        print('trying %s' %(attempt))
         if(attempt==list(args.input)):
             print('password found! %s' %(attempt))
             break
