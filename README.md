@@ -1,13 +1,14 @@
 # password-cracker
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
-
+ - [x]Dictionary Attack option 
+ - [x] Bruteforce Attack option
+ - [x]Command line arguments can be taken in
  - [x] Top 10,000 most common passwords can be cracked 
     - [x] Plain-text passwords can be checked 
     - [x] MD5 hashed passwords can be checked 
-    - [x] SHA-256 hashed passwords can be checked 
- - [x]Dictionary Attack option 
- - [x]Command line arguments can be taken in
+    - [] SHA-256 hashed passwords can be checked 
+
 
 
 ## usage
@@ -18,6 +19,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 -t : hash type, md5, sha256, pt(plaintext)
 
 
-### example
-python3 crack.py -m d -i 5E884898DA28047151D0E56F8DC6292773603D0D6AABBDD62A11EF721D1542D8 -t sha256
+### examples
+python3 crack.py -m d -i 5f4dcc3b5aa765d61d8327deb882cf99 -t md5
 returns 'password'
+
+python3 crack.py -m b -i abc -t pt
+returns '['a','b','c']'
+
+## notes
+- Bruteforce only works with plaintext
+- SHA256 doesn't work
