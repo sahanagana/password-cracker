@@ -7,7 +7,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
  - [x] Top 10,000 most common passwords can be cracked 
     - [x] Plain-text passwords can be checked 
     - [x] MD5 hashed passwords can be checked 
-    - [] SHA-256 hashed passwords can be checked 
+    - [ ] SHA-256 hashed passwords can be checked 
 
 
 
