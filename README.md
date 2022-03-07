@@ -1,9 +1,9 @@
 # password-cracker
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
- - [x]Dictionary Attack option 
+ - [x] Dictionary Attack option 
  - [x] Bruteforce Attack option
- - [x]Command line arguments can be taken in
+ - [x] Command line arguments can be taken in
  - [x] Top 10,000 most common passwords can be cracked 
     - [x] Plain-text passwords can be checked 
     - [x] MD5 hashed passwords can be checked 
