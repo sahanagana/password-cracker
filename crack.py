@@ -16,11 +16,11 @@ def dictionary_attack(word, target):
     #if needed, hash it
     hashtype = args.type
     if(hashtype== 'sha256'):
-        wordbytes= word.encode('utf-8')
+        wordbytes= word.encode('utf-8')#remove utf-8? #print hash
         wordhash = hashlib.sha256(wordbytes)
         word = wordhash.hexdigest()
     elif(hashtype=='md5'):
-        wordbytes= word.encode('utf-8')
+        wordbytes= word.encode('utf-8') 
         wordhash = hashlib.md5(wordbytes)
         word = wordhash.hexdigest()
     if word == target:
