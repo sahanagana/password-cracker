@@ -3,7 +3,7 @@ import hashlib
 #from itertools import combinations_with_replacement or permutations
 import random
 
-#run with 'python3 crack.py' + extension
+#run with 'python3 crack.py' + extension ez dub im cracked at pyhton
 #arguments
 parser = argparse.ArgumentParser(description='python password cracker')
 parser.add_argument('-m', '--mode', help = 'b for bruteforce or d for dictionary attack', required= True)
@@ -16,10 +16,12 @@ def dictionary_attack(word, target):
     #if needed, hash it
     hashtype = args.type
     if(hashtype== 'sha256'):
+        #WHY IT NOT WORKR ITS LITERLAYL THE SMA EHTING kms
         wordbytes= word.encode('utf-8')#remove utf-8? #print hash
         wordhash = hashlib.sha256(wordbytes)
         word = wordhash.hexdigest()
-    elif(hashtype=='md5'):
+        #idek atp
+    elif(hashtype=='md5'): #she works i lov her mwah <33333
         wordbytes= word.encode('utf-8') 
         wordhash = hashlib.md5(wordbytes)
         word = wordhash.hexdigest()
@@ -34,7 +36,7 @@ if args.mode=='d':
     filename = input('Enter dictionary file name (don\'t put anything if you want to use the top 10000 passwords):')
     #if the user put nothing, just use the passwords file
     if len(filename)== 0:
-        filename = 'passwords.txt'
+        filename = 'passwords.txt' #yum
     with open(filename, 'r') as dictfile:
         #loop through it line by line
         found = False
@@ -49,19 +51,29 @@ if args.mode=='d':
         #otherwise
         if found == False:
             print('Couldn\'t find match rip lol')
+        #AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
 #brute force attack-------------------------------
 elif args.mode=='b':
-    alphabet = 'abcdefghijklmnopqrstuvwxyz'
-    alphlist = list(alphabet)
+    alphabet = 'abcdefghijklmnopqrstuvwxyz' #singing the alphabet song while i write thsi
+    #LIST :)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+    alphlist = list(alphabet) 
+    #irdlfjkks
     attempt = ""
+    # if its not the ANSWER
     while(attempt!= args.input):
+        #radongon lettkers
         attempt = random.choices(alphlist, k= len(args.input))
+        #print it outy so i can see twhats WRONG!!!!
         print('trying %s' %(attempt))
+        #IF IT IS
         if(attempt==list(args.input)):
+            #PRINT AND LEAVE!!!!!!!!!!!!!!!!!!!!!
             print('password found! %s' %(attempt))
+            #LEAVE
             break
 #default------------------------------------------
 else:
+    #mission aboot
     print('bruh')
     quit()
