@@ -57,7 +57,7 @@ if args.mode=='d':
 
 #brute force attack-------------------------------
 elif args.mode=='b':
-    chars = string.ascii_lowercase + string.ascii_uppercase + string.digits + '@' + '#' + '$' + '.' #singing the alphabet song while i write thsi
+    chars = string.ascii_lowercase + string.ascii_uppercase + string.digits + '@' + '#' + '$' + '.' 
     #LIST :)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
     #irdlfjkks
     length = len(args.input)
@@ -70,7 +70,7 @@ elif args.mode=='b':
             attempt = ''.join(guess)
             #CHECK eet
             print("checking: %s" %(attempt))
-            if(attempt==list(args.input)):
+            if(attempt==args.input):
                 #PRINT AND LEAVE!!!!!!!!!!!!!!!
                 print("Matched! %s" %(attempt))
                 break
