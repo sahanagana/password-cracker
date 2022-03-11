@@ -69,6 +69,7 @@ elif args.mode=='b':
             #make ur guess
             attempt = ''.join(guess)
             #CHECK eet
+            #HASH BROWN.maybe
             print("checking: %s" %(attempt))
             if(attempt==args.input):
                 #PRINT AND LEAVE!!!!!!!!!!!!!!!
