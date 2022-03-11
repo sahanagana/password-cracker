@@ -2,6 +2,8 @@ import argparse
 import hashlib
 #from itertools import combinations_with_replacement or permutations
 import random
+import itertools
+import string
 
 #run with 'python3 crack.py' + extension ez dub im cracked at pyhton
 #arguments
@@ -55,23 +57,23 @@ if args.mode=='d':
 
 #brute force attack-------------------------------
 elif args.mode=='b':
-    alphabet = 'abcdefghijklmnopqrstuvwxyz' #singing the alphabet song while i write thsi
+    chars = string.ascii_lowercase + string.ascii_uppercase + string.digits + '@' + '#' + '$' + '.' #singing the alphabet song while i write thsi
     #LIST :)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
-    alphlist = list(alphabet) 
     #irdlfjkks
+    length = len(args.input)
     attempt = ""
     # if its not the ANSWER
     while(attempt!= args.input):
-        #radongon lettkers
-        attempt = random.choices(alphlist, k= len(args.input))
-        #print it outy so i can see twhats WRONG!!!!
-        print('trying %s' %(attempt))
-        #IF IT IS
-        if(attempt==list(args.input)):
-            #PRINT AND LEAVE!!!!!!!!!!!!!!!!!!!!!
-            print('password found! %s' %(attempt))
-            #LEAVE
-            break
+        #iterate through chars
+        for guess in itertools.product(chars,repeat=length): 
+            #make ur guess
+            attempt = ''.join(guess)
+            #CHECK eet
+            print("checking: %s" %(attempt))
+            if(attempt==list(args.input)):
+                #PRINT AND LEAVE!!!!!!!!!!!!!!!
+                print("Matched! %s" %(attempt))
+                break
 #default------------------------------------------
 else:
     #mission aboot
