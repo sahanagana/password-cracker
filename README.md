@@ -1,6 +1,5 @@
 # password-cracker
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-
+Python Password Cracker
  - [x] Dictionary Attack option 
  - [x] Bruteforce Attack option
  - [x] Command line arguments can be taken in
